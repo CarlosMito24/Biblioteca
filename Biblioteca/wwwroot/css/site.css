@@ -1,0 +1,94 @@
+html {
+  font-size: 15px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+    body .menu {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    body header {
+        background-color: #25225c;
+        width: 100%;
+        clear: both;
+        content: '';
+        display: table;
+    }
+
+        body header nav {
+            float: left;
+        }
+
+            body header nav ul li {
+                list-style: none;
+                margin-left: 75px;
+                padding: 25px 0;
+                float: left;
+            }
+
+                body header nav ul li a {
+                    text-decoration: none;
+                    color: white;
+                    font-weight: bold;
+                }
+
+table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid;
+    border-color: black;
+}
+
+thead th:nth-child(1) {
+    width: 15%;
+}
+
+thead th:nth-child(2) {
+    width: 15%;
+}
+
+thead th:nth-child(3) {
+    width: 15%;
+}
+
+thead th:nth-child(4) {
+    width: 15%;
+}
+
+thead th:nth-child(5) {
+    width: 10%;
+}
+
+thead th:nth-child(6) {
+    width: 10%;
+}
+
+thead th:nth-child(7) {
+    width: 10%;
+}
+
+th, td {
+    padding: 10px;
+}
+
+tbody {
+    border-collapse: collapse;
+    border: 1px solid;
+    border-color: black;
+}

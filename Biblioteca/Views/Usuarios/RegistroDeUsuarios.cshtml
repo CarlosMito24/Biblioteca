@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Biblioteca.Modelos.VariablesUsuarios>
+
+@{
+    ViewData["Title"] = "Lista De Usuarios";
+}
+
+<br>
+
+<h1 style="text-align: center"> Lista de usuarios</h1>
+
+<br>
+
+<div>
+    <a asp-action="Crear" asp-controller="Usuarios" class="btn btn-primary">Crear Usuario</a>
+</div>
+
+<form asp-action="RegistroDeUsuarios" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Busca por Nombre o Apellido: <input type="text" name="Buscar" value="@ViewData["Buscar"]" />
+            <input type="submit" value="Buscar" class="btn btn-success" /> |
+            <a class="btn btn-primary" asp-action="RegistroDeUsuarios">Volver a la Lista Completa</a>
+        </p>
+    </div>
+</form>
+
+<br>
+
+<table>
+    <thead>
+        <tr>
+            <th>
+                Nombre del usuario:
+            </th>
+            <th>
+                Apellido del usuario:
+            </th>
+            <th>
+                Teléfono del cliente
+            </th>
+            <th>
+                DUI del cliente:
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(m => item.Nombre)</td>
+                <td>@Html.DisplayFor(m => item.Apellido)</td>
+                <td>@Html.DisplayFor(m => item.Teléfono)</td>
+                <td>@Html.DisplayFor(m => item.DUI)</td>
+                <td>
+                    <a class="btn btn-primary" asp-action="DetallesUsuario" asp-route-id="@item.ID">Detalles</a>
+                </td>
+                <td>
+                    <a class="btn btn-secondary" asp-action="ModificarUsuario" asp-route-id="@item.ID">Modificar</a>
+                </td>
+                <td>
+                    <a class="btn btn-danger" asp-action="EliminarUsuario" asp-route-id="@item.ID">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
