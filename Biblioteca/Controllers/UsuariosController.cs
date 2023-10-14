@@ -50,14 +50,14 @@ namespace Biblioteca.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Crear()
+        public async Task<IActionResult> CrearUsuario()
         {
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Crear(VariablesUsuarios ordenes)
+        public async Task<IActionResult> CrearUsuario(VariablesUsuarios ordenes)
         {
             if (ModelState.IsValid)
             {

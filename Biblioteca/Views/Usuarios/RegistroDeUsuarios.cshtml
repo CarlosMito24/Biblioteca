@@ -11,7 +11,7 @@
 <br>
 
 <div>
-    <a asp-action="Crear" asp-controller="Usuarios" class="btn btn-primary">Crear Usuario</a>
+    <a asp-action="CrearUsuario" asp-controller="Usuarios" class="btn btn-primary">Crear Usuario</a>
 </div>
 
 <form asp-action="RegistroDeUsuarios" method="get">
@@ -19,7 +19,7 @@
         <p>
             Busca por Nombre o Apellido: <input type="text" name="Buscar" value="@ViewData["Buscar"]" />
             <input type="submit" value="Buscar" class="btn btn-success" /> |
-            <a class="btn btn-primary" asp-action="RegistroDeUsuarios">Volver a la Lista Completa</a>
+            <a class="btn btn-success" asp-action="RegistroDeUsuarios">Volver a la Lista Completa</a>
         </p>
     </div>
 </form>
@@ -36,10 +36,10 @@
                 Apellido del usuario:
             </th>
             <th>
-                Teléfono del cliente
+                Teléfono del usuario:
             </th>
             <th>
-                DUI del cliente:
+                DUI del usuario:
             </th>
         </tr>
     </thead>
