@@ -34,7 +34,7 @@ namespace Biblioteca.Controllers
             {
                 return NotFound();
             }
-            var cliente = _context.Tabla_Usuarios.Find(id);
+            var cliente = _context.Tabla_Libros.Find(id);
             if (cliente == null)
             {
                 return NotFound();
@@ -66,6 +66,58 @@ namespace Biblioteca.Controllers
                 return RedirectToAction("RegistroDeLibros");
             }
             return View();
+        }
+
+        public async Task<IActionResult> ModificarLibro(int? id)
+        {
+            if (id == null || _context.Tabla_Libros == null)
+            {
+                return NotFound();
+            }
+
+            var variablesLibro = await _context.Tabla_Libros.FindAsync(id);
+            if (variablesLibro == null)
+            {
+                return NotFound();
+            }
+            return View(variablesLibro);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ModificarLibro(int id, [Bind("ID,Nombre,Autor")] VariablesLibro variablesLibro)
+        {
+            if (id != variablesLibro.ID)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(variablesLibro);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!VariablesLibroExists(variablesLibro.ID))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(RegistroDeLibros));
+            }
+            return View(variablesLibro);
+        }
+
+        private bool VariablesLibroExists(int iD)
+        {
+            throw new NotImplementedException();
         }
     }
 }

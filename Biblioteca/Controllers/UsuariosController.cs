@@ -1,6 +1,11 @@
-﻿using Biblioteca.Modelos;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Biblioteca.Modelos;
 
 namespace Biblioteca.Controllers
 {
@@ -66,6 +71,94 @@ namespace Biblioteca.Controllers
                 return RedirectToAction("RegistroDeUsuarios");
             }
             return View();
+        }
+
+        public async Task<IActionResult> ModificarUsuario(int? id)
+        {
+            if (id == null || _context.Tabla_Usuarios == null)
+            {
+                return NotFound();
+            }
+
+            var variablesUsuarios = await _context.Tabla_Usuarios.FindAsync(id);
+            if (variablesUsuarios == null)
+            {
+                return NotFound();
+            }
+            return View(variablesUsuarios);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ModificarUsuario(int id, [Bind("ID,Nombre,Apellido,Teléfono,DUI")] VariablesUsuarios variablesUsuarios)
+        {
+            if (id != variablesUsuarios.ID)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(variablesUsuarios);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!VariablesUsuariosExists(variablesUsuarios.ID))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(RegistroDeUsuarios));
+            }
+            return View(variablesUsuarios);
+        }
+
+        private bool VariablesUsuariosExists(int iD)
+        {
+            throw new NotImplementedException();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null || _context.Tabla_Usuarios == null)
+            {
+                return NotFound();
+            }
+
+            var variablesUsuarios = await _context.Tabla_Usuarios
+                .FirstOrDefaultAsync(m => m.ID == id);
+            if (variablesUsuarios == null)
+            {
+                return NotFound();
+            }
+
+            return View(variablesUsuarios);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            if (_context.Tabla_Usuarios == null)
+            {
+                return Problem("Entity set 'DBContext.Tabla_Usuarios'  is null.");
+            }
+            var variablesUsuarios = await _context.Tabla_Usuarios.FindAsync(id);
+            if (variablesUsuarios != null)
+            {
+                _context.Tabla_Usuarios.Remove(variablesUsuarios);
+            }
+
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
     }
 }
