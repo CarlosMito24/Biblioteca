@@ -1,1 +1,62 @@
-﻿
+﻿@model Biblioteca.Modelos.VariablesUsuarios
+
+@{
+    ViewData["Title"] = "Eliminar Usuario";
+}
+
+<br>
+
+<h1> Borrar Usuario </h1>
+
+<br>
+
+<table>
+    <tr>
+        <td>
+            <b>
+                Nombre del usuario:
+            </b>
+        </td>
+        <td>
+            <b>
+                Apellido del usuario:
+            </b>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(model => model.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Apellido)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <b>
+                Teléfono del usuario:
+            </b>
+        </td>
+        <td>
+            <b>
+                DUI del usuario:
+            </b>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(model => model.Teléfono)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.DUI)
+        </td>
+    </tr>
+</table>
+
+<br>
+
+<form asp-action="EliminarUsuario">
+    <input type="hidden" asp-for="ID" />
+    <input type="submit" value="Borrar usuario" class="btn btn-danger">
+    <a asp-action="RegistroDeUsuarios" class="btn btn-primary">Volver al registro de usuarios </a>
+</form>

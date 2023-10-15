@@ -119,5 +119,41 @@ namespace Biblioteca.Controllers
         {
             throw new NotImplementedException();
         }
+
+        [HttpGet]
+        public async Task<IActionResult> EliminarLibro(int? id)
+        {
+            if (id == null || _context.Tabla_Libros == null)
+            {
+                return NotFound();
+            }
+
+            var variablesLibro = await _context.Tabla_Libros
+                .FirstOrDefaultAsync(m => m.ID == id);
+            if (variablesLibro == null)
+            {
+                return NotFound();
+            }
+
+            return View(variablesLibro);
+        }
+
+        [HttpPost, ActionName("EliminarLibro")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EliminarLibroConfirmed(int id)
+        {
+            if (_context.Tabla_Libros == null)
+            {
+                return Problem("Entity set 'DBContext.Tabla_Libros'  is null.");
+            }
+            var variablesLibro = await _context.Tabla_Libros.FindAsync(id);
+            if (variablesLibro != null)
+            {
+                _context.Tabla_Libros.Remove(variablesLibro);
+            }
+
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(RegistroDeLibros));
+        }
     }
 }

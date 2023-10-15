@@ -126,7 +126,7 @@ namespace Biblioteca.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> EliminarUsuario(int? id)
         {
             if (id == null || _context.Tabla_Usuarios == null)
             {
@@ -143,9 +143,9 @@ namespace Biblioteca.Controllers
             return View(variablesUsuarios);
         }
 
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("EliminarUsuario")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> EliminarUsuarioConfirmed(int id)
         {
             if (_context.Tabla_Usuarios == null)
             {
@@ -158,7 +158,7 @@ namespace Biblioteca.Controllers
             }
 
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(RegistroDeUsuarios));
         }
     }
 }

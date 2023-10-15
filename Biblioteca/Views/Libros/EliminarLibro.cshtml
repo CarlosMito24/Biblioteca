@@ -1,21 +1,25 @@
 ﻿@model Biblioteca.Modelos.VariablesLibro
+
 @{
-    ViewData["Title"] = "Detalles del libro";
+    ViewData["Title"] = "Eliminar Libro";
 }
+
 <br>
-<h3 class="text-center">Detalles del libro: @Html.DisplayFor(model => model.Nombre)</h3>
+
+<h1> Borrar Libro </h1>
+
 <br>
 
 <table>
     <tr>
         <td>
             <b>
-                Nombre del libro:
+                Nombre del usuario:
             </b>
         </td>
         <td>
             <b>
-                Autor del libro:
+                Apellido del usuario:
             </b>
         </td>
     </tr>
@@ -31,4 +35,8 @@
 
 <br>
 
-<a asp-action="RegistroDeLibros" class="btn btn-primary">Volver al registro de usuarios </a>
+<form asp-action="EliminarLibro">
+    <input type="hidden" asp-for="ID" />
+    <input type="submit" value="Borrar libro" class="btn btn-danger">
+    <a asp-action="RegistroDeLibros" class="btn btn-primary">Volver al registro de usuarios </a>
+</form>

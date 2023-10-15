@@ -10,44 +10,29 @@
     <tr>
         <td>
             <b>
-                ID del usuario:
-            </b>
-        </td>
-        <td>
-            <b>
                 Nombre del usuario:
             </b>
         </td>
-    </tr>
-    <tr>
-        <td>
-            @Html.DisplayFor(model => model.ID)
-        </td>
-        <td>
-            @Html.DisplayFor(model => model.Nombre)
-        </td>
-    </tr>
-    <tr>
         <td>
             <b>
                 Apellido del usuario:
             </b>
         </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(model => model.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Apellido)
+        </td>
+    </tr>
+    <tr>
         <td>
             <b>
                 Teléfono del usuario:
             </b>
         </td>
-    </tr>
-    <tr>
-        <td>
-            @Html.DisplayFor(model => model.Apellido)
-        </td>
-        <td>
-            @Html.DisplayFor(model => model.Teléfono)
-        </td>
-    </tr>
-    <tr>
         <td>
             <b>
                 DUI del usuario:
@@ -56,7 +41,14 @@
     </tr>
     <tr>
         <td>
+            @Html.DisplayFor(model => model.Teléfono)
+        </td>
+        <td>
             @Html.DisplayFor(model => model.DUI)
         </td>
     </tr>
 </table>
+
+<br>
+
+<a asp-action="RegistroDeUsuarios" class="btn btn-primary">Volver al registro de usuarios </a>
