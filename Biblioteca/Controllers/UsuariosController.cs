@@ -44,7 +44,7 @@ namespace Biblioteca.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Detalle()
+        public IActionResult DetallesUsuario()
         {
             return RedirectToAction(nameof(RegistroDeUsuarios));
         }

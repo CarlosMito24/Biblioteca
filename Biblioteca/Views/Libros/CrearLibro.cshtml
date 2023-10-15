@@ -1,0 +1,31 @@
+﻿@model Biblioteca.Modelos.VariablesLibro
+@{
+    ViewData["Title"] = "Crear Libro";
+}
+
+<br>
+<h1 style="text-align:center"> Formulario Para Crear Libro</h1>
+
+<br>
+
+<form asp-action="CrearLibro">
+    <div class="form-group">
+        <label asp-for="Nombre" class="control-label"></label>
+        <input asp-for="Nombre" class="form-control" />
+        <span asp-validation-for="Nombre" class="text-danger"></span>
+    </div>
+
+    <br>
+
+    <div class="form-group">
+        <label asp-for="Autor" class="control-label"></label>
+        <input asp-for="Autor" class="form-control" />
+        <span asp-validation-for="Autor" class="text-danger"></span>
+    </div>
+
+    <br>
+
+    <div class=" form-group mt-3">
+        <button type="submit" class="btn btn-primary">Crear Libro</button>
+    </div>
+</form>

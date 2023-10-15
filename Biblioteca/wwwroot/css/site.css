@@ -80,3 +80,30 @@ tbody {
     border: 1px solid;
     border-color: black;
 }
+
+
+.clase1 table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid;
+    border-color: black;
+}
+
+.clase1 thead th:nth-child(1) {
+    width: 30%;
+}
+
+.clase1 thead th:nth-child(2) {
+    width: 30%;
+}
+
+.clase1 th, td {
+    padding: 10px;
+}
+
+.clase1 tbody {
+    border-collapse: collapse;
+    border: 1px solid;
+    border-color: black;
+}

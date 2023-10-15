@@ -1,1 +1,47 @@
-﻿
+﻿@model Biblioteca.Modelos.VariablesUsuarios
+@{
+    ViewData["Title"] = "Crear Usuario";
+}
+
+<br>
+<h1 style="text-align:center"> Formulario Para Crear Usuario</h1>
+
+<br>
+
+<form asp-action="CrearUsuario">
+    <div class="form-group">
+        <label asp-for="Nombre" class="control-label"></label>
+        <input asp-for="Nombre" class="form-control" />
+        <span asp-validation-for="Nombre" class="text-danger"></span>
+    </div>
+
+    <br>
+    
+    <div class="form-group">
+        <label asp-for="Apellido" class="control-label"></label>
+        <input asp-for="Apellido" class="form-control" />
+        <span asp-validation-for="Apellido" class="text-danger"></span>
+    </div>
+
+    <br>
+    
+    <div class="form-group">
+        <label asp-for="Teléfono" class="control-label"></label>
+        <input asp-for="Teléfono" class="form-control" />
+        <span asp-validation-for="Teléfono" class="text-danger"></span>
+    </div>
+
+    <br>
+    
+    <div class="form-group">
+        <label asp-for="DUI" class="control-label"></label>
+        <input asp-for="DUI" class="form-control" />
+        <span asp-validation-for="DUI" class="text-danger"></span>
+    </div>
+
+    <br>
+    
+    <div class=" form-group mt-3">
+        <button type="submit" class="btn btn-primary">Crear Usuario</button>
+    </div>
+</form>

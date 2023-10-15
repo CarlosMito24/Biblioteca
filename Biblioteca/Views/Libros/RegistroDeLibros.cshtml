@@ -1,1 +1,61 @@
-﻿Hola Mundo 2
+﻿@model IEnumerable<Biblioteca.Modelos.VariablesLibro>
+
+@{
+    ViewData["Title"] = "Lista De Libros";
+}
+
+<br>
+
+<h1 style="text-align: center"> Lista de libros</h1>
+
+<br>
+
+<div>
+    <a asp-action="CrearLibro" asp-controller="Libros" class="btn btn-primary">Crear Libro</a>
+</div>
+
+<br>
+
+<form asp-action="RegistroDeLibros" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Busca por Nombre: <input type="text" name="Buscar" value="@ViewData["Buscar"]" />
+            <input type="submit" value="Buscar" class="btn btn-success" /> |
+            <a class="btn btn-success" asp-action="RegistroDeLibros">Volver a la Lista Completa</a>
+        </p>
+    </div>
+</form>
+
+<br>
+
+<table class="clase1">
+    <thead>
+        <tr>
+            <th class="clase1">
+                Nombre del libro:
+            </th>
+            <th class="clase2">
+                Autor del libro:
+            </th>
+        </tr>
+    </thead>
+
+    <tbody class="clase1">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(m => item.Nombre)</td>
+                <td>@Html.DisplayFor(m => item.Autor)</td>
+                <td>
+                    <a class="btn btn-primary" asp-action="DetallesLibro" asp-route-id="@item.ID">Detalles</a>
+                </td>
+                <td>
+                    <a class="btn btn-secondary" asp-action="ModificarLibro" asp-route-id="@item.ID">Modificar</a>
+                </td>
+                <td>
+                    <a class="btn btn-danger" asp-action="EliminarLibro" asp-route-id="@item.ID">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

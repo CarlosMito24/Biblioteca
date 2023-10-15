@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Biblioteca.Migrations
 {
     [DbContext(typeof(DBContext))]
-    [Migration("20231013213341_m1")]
+    [Migration("20231015174123_m1")]
     partial class m1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,9 +35,10 @@ namespace Biblioteca.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("DUI")
-                        .HasMaxLength(9)
-                        .HasColumnType("int");
+                    b.Property<string>("DUI")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
 
                     b.Property<string>("Nombre")
                         .IsRequired()
@@ -45,7 +46,8 @@ namespace Biblioteca.Migrations
 
                     b.Property<string>("Teléfono")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(9)
+                        .HasColumnType("nvarchar(9)");
 
                     b.HasKey("ID");
 

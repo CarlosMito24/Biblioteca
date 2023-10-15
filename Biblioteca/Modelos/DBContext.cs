@@ -10,5 +10,6 @@ namespace Biblioteca.Modelos
         }
 
         public DbSet<VariablesUsuarios> Tabla_Usuarios { get; set; }
+        public DbSet<VariablesLibro> Tabla_Libros { get; set; }
     }
 }

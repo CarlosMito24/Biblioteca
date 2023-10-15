@@ -16,8 +16,8 @@ namespace Biblioteca.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Apellido = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Teléfono = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DUI = table.Column<int>(type: "int", maxLength: 9, nullable: false)
+                    Teléfono = table.Column<string>(type: "nvarchar(9)", maxLength: 9, nullable: false),
+                    DUI = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false)
                 },
                 constraints: table =>
                 {
