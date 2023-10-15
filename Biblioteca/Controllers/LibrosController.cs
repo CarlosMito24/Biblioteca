@@ -22,7 +22,7 @@ namespace Biblioteca.Controllers
 
             if (!String.IsNullOrEmpty(buscar))
             {
-                _clientes = _clientes.Where(a => a.Nombre.Contains(buscar));
+                _clientes = _clientes.Where(a => a.Nombre.Contains(buscar) || a.Autor.Contains(buscar));
             }
             return View(await _clientes.AsNoTracking().ToListAsync());
         }
