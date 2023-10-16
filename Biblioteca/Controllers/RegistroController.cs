@@ -17,6 +17,8 @@ namespace Biblioteca.Controllers
         {
             _context = context;
         }
+
+        [HttpGet]
         public async Task <IActionResult> RegistroDePrestamos()
         {
             var dbContext1 = _context.Tabla_Registros.Include(v => v.VariablesLibro).Include(v => v.VariablesUsuarios);
