@@ -18,6 +18,7 @@ namespace Biblioteca.Controllers
             _context = context;
         }
 
+        [HttpGet]
         public async Task<IActionResult> RegistroDeUsuarios(string buscar)
         {
             ViewData["Buscar"] = buscar;
@@ -73,6 +74,7 @@ namespace Biblioteca.Controllers
             return View();
         }
 
+        [HttpGet]
         public async Task<IActionResult> ModificarUsuario(int? id)
         {
             if (id == null || _context.Tabla_Usuarios == null)

@@ -68,6 +68,7 @@ namespace Biblioteca.Controllers
             return View();
         }
 
+        [HttpGet]
         public async Task<IActionResult> ModificarLibro(int? id)
         {
             if (id == null || _context.Tabla_Libros == null)
