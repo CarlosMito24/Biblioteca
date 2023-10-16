@@ -1,0 +1,42 @@
+﻿@model Biblioteca.Modelos.VariablesRegistro
+
+@{
+    ViewData["Title"] = "Eliminar Registro";
+}
+
+<br>
+
+<h3 style="text-align:center"> Borrar Registro </h3>
+
+<br>
+
+<table>
+    <tr>
+        <td>
+            <b>
+                Nombre del libro:
+            </b>
+        </td>
+        <td>
+            <b>
+                Nombre del usuario:
+            </b>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(model => model.VariablesLibro.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.VariablesUsuarios.Nombre)
+        </td>
+    </tr>
+</table>
+
+<br>
+
+<form asp-action="EliminarRegistro">
+    <input type="hidden" asp-for="ID" />
+    <input type="submit" value="Borrar registro" class="btn btn-danger">
+    <a asp-action="RegistroDePrestamos" class="btn btn-primary">Volver a la lista de registros </a>
+</form>

@@ -12,5 +12,7 @@ namespace Biblioteca.Modelos
 
         [Required(ErrorMessage = "El campo Autor es requerido para guardar el usuario")]
         public string Autor { get; set; }
+
+        public ICollection<VariablesRegistro> CrearRegistro { get; set; }
     }
 }

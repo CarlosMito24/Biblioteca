@@ -1,1 +1,49 @@
-﻿Hola Mundo 3
+﻿@model IEnumerable<Biblioteca.Modelos.VariablesRegistro>
+
+@{
+    ViewData["Title"] = "Registro De Préstamos De Libros";
+}
+
+<br>
+
+<h1 style="text-align:center">Lista De Préstamos De Libros</h1>
+
+<br>
+
+<div>
+    <a asp-action="CrearRegistro" asp-controller="Registro" class="btn btn-primary">Crear Registro</a>
+</div>
+
+<br>
+
+<table class="clase1">
+    <thead>
+        <tr>
+            <th class="clase1">
+                Nombre del libro:
+            </th>
+            <th class="clase1">
+                Nombre del usuario:
+            </th>
+        </tr>
+    </thead>
+
+    <tbody class="clase1">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(m => item.VariablesLibro.Nombre)</td>
+                <td>@Html.DisplayFor(m => item.VariablesUsuarios.Nombre)</td>
+                <td>
+                    <a class="btn btn-primary" asp-action="DetallesRegistro" asp-route-id="@item.ID">Detalles</a>
+                </td>
+                <td>
+                    <a class="btn btn-secondary" asp-action="ModificarRegistro" asp-route-id="@item.ID">Modificar</a>
+                </td>
+                <td>
+                    <a class="btn btn-danger" asp-action="EliminarRegistro" asp-route-id="@item.ID">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

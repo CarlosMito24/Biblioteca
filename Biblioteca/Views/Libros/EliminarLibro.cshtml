@@ -6,7 +6,7 @@
 
 <br>
 
-<h1> Borrar Libro </h1>
+<h3 style="text-align:center"> Borrar Libro </h3>
 
 <br>
 
@@ -14,12 +14,12 @@
     <tr>
         <td>
             <b>
-                Nombre del usuario:
+                Nombre del libro:
             </b>
         </td>
         <td>
             <b>
-                Apellido del usuario:
+                Nombre del autor:
             </b>
         </td>
     </tr>
@@ -38,5 +38,5 @@
 <form asp-action="EliminarLibro">
     <input type="hidden" asp-for="ID" />
     <input type="submit" value="Borrar libro" class="btn btn-danger">
-    <a asp-action="RegistroDeLibros" class="btn btn-primary">Volver al registro de usuarios </a>
+    <a asp-action="RegistroDeLibros" class="btn btn-primary">Volver al registro de libros </a>
 </form>

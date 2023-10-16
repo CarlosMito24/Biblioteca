@@ -1,0 +1,34 @@
+﻿@model Biblioteca.Modelos.VariablesRegistro
+@{
+    ViewData["Title"] = "Detalles del Registro";
+}
+<br>
+<h3 class="text-center">Detalles del registro: @Html.DisplayFor(model => model.VariablesLibro.Nombre) - @Html.DisplayFor(model => model.VariablesUsuarios.Nombre)</h3>
+<br>
+
+<table>
+    <tr>
+        <td>
+            <b>
+                Nombre del libro:
+            </b>
+        </td>
+        <td>
+            <b>
+                Nombre del usuario:
+            </b>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(model => model.VariablesLibro.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.VariablesUsuarios.Nombre)
+        </td>
+    </tr>
+</table>
+
+<br>
+
+<a asp-action="RegistroDePrestamos" class="btn btn-primary">Volver a la lista de registros</a>

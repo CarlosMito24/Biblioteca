@@ -23,5 +23,7 @@ namespace Biblioteca.Modelos
         [MaxLength(10)]
         [MinLength(10)]
         public string DUI { get; set; }
+
+        public ICollection<VariablesRegistro> CrearRegistro { get; set; }
     }
 }

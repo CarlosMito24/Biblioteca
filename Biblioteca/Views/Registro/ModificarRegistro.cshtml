@@ -1,0 +1,41 @@
+﻿@model Biblioteca.Modelos.VariablesRegistro
+
+@{
+    ViewData["Title"] = "Modificar Registro";
+}
+
+<br>
+
+<h3 style="text-align:center"> Modificar Registro </h3>
+
+<br>
+
+<form asp-action="ModificarRegistro">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="ID" />
+
+    <div class="form-group">
+        <label>Selecciona un libro:</label>
+        <select asp-for="VariablesLibroID" class="form-control" asp-items="ViewBag.VariablesLibroID"></select>
+    </div>
+
+    <br>
+
+    <div class="form-group">
+        <label>Selecciona un usuario:</label>
+        <select asp-for="VariablesUsuariosID" class="form-control" asp-items="ViewBag.VariablesUsuariosID"></select>
+    </div>
+
+    <br>
+
+    <div class="form-group">
+        <input type="submit" value="Guardar cambios" class="btn btn-primary">
+        <a asp-action="RegistroDePrestamos" class="btn btn-primary">Volver a la lista de registros</a>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

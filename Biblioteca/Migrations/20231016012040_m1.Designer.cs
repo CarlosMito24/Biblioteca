@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Biblioteca.Migrations
 {
     [DbContext(typeof(DBContext))]
-    [Migration("20231015180200_m2")]
-    partial class m2
+    [Migration("20231016012040_m1")]
+    partial class m1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -44,6 +44,29 @@ namespace Biblioteca.Migrations
                     b.ToTable("Tabla_Libros");
                 });
 
+            modelBuilder.Entity("Biblioteca.Modelos.VariablesRegistro", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+
+                    b.Property<int>("VariablesLibroID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("VariablesUsuariosID")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("VariablesLibroID");
+
+                    b.HasIndex("VariablesUsuariosID");
+
+                    b.ToTable("Tabla_Registros");
+                });
+
             modelBuilder.Entity("Biblioteca.Modelos.VariablesUsuarios", b =>
                 {
                     b.Property<int>("ID")
@@ -73,6 +96,35 @@ namespace Biblioteca.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Tabla_Usuarios");
+                });
+
+            modelBuilder.Entity("Biblioteca.Modelos.VariablesRegistro", b =>
+                {
+                    b.HasOne("Biblioteca.Modelos.VariablesLibro", "VariablesLibro")
+                        .WithMany("CrearRegistro")
+                        .HasForeignKey("VariablesLibroID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Biblioteca.Modelos.VariablesUsuarios", "VariablesUsuarios")
+                        .WithMany("CrearRegistro")
+                        .HasForeignKey("VariablesUsuariosID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("VariablesLibro");
+
+                    b.Navigation("VariablesUsuarios");
+                });
+
+            modelBuilder.Entity("Biblioteca.Modelos.VariablesLibro", b =>
+                {
+                    b.Navigation("CrearRegistro");
+                });
+
+            modelBuilder.Entity("Biblioteca.Modelos.VariablesUsuarios", b =>
+                {
+                    b.Navigation("CrearRegistro");
                 });
 #pragma warning restore 612, 618
         }
