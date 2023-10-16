@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Biblioteca.Migrations
 {
     [DbContext(typeof(DBContext))]
-    [Migration("20231016012040_m1")]
-    partial class m1
+    [Migration("20231016031112_beta1")]
+    partial class beta1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
