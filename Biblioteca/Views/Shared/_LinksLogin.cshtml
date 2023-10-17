@@ -1,0 +1,33 @@
+﻿@using Microsoft.AspNetCore.Identity;
+@inject SignInManager<IdentityUser> SinInManager
+
+<ul style="list-style: none;" class="navbar-var">
+    @{
+        // preguntamos si el usuario esta logueado. 
+        // lo saludamos con un hola
+     }
+
+    @if (SinInManager.IsSignedIn(User))
+    {
+
+        <li class="nav-item text-secondary alert alert-light" role="alert">
+
+            <span class="nav-link text-dark btn btn-info">
+                Bienvenido @User.Identity.Name
+                    <form class="form-inline btn btn-link" asp-action="Logout" asp-controller="Login">
+                        <button type="submit" class="nav-link btn btn-link text-dark">Cerrar Sesion</button>
+                    </form>
+            </span>
+        </li>
+        
+    }else
+        {
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-controller="Login" asp-action="Registro">Registro</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-controller="Login" asp-action="LoginV">Login</a>
+            </li>
+        }
+
+</ul>

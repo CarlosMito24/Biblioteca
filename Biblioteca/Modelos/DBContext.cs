@@ -1,8 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace Biblioteca.Modelos
 {
-    public class DBContext : DbContext
+    public class DBContext : IdentityDbContext
     {
         public DBContext(DbContextOptions options) : base(options)
         {
