@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Biblioteca.Migrations
 {
-    public partial class m1 : Migration
+    public partial class prueba : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
