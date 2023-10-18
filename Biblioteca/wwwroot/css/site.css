@@ -13,12 +13,6 @@ html {
   min-height: 100%;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
   margin-bottom: 60px;
 }
@@ -86,7 +80,6 @@ tbody {
     border: 1px solid;
     border-color: black;
 }
-
 
 .clase1 table {
     table-layout: fixed;

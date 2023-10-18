@@ -88,7 +88,7 @@ namespace Biblioteca.Controllers
             }
             else
             {
-                ModelState.AddModelError(string.Empty, "Nombre o Passwork incorrectos ");
+                ModelState.AddModelError(string.Empty, "Correo o Contraseña incorrectos ");
                 return View(modelo);
             }
 
